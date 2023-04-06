@@ -6,7 +6,7 @@ from selenium import webdriver
 import time
 import openpyxl
 import datetime
-pdf_dir = r'C:\Users\chaitalibothe\Desktop\InvoiceProject\project invoice'
+pdf_dir = r'C:\Users\chaitalibothe\Desktop\Sampleproj\project invoice'
 now = datetime.datetime.now()
 auditlog = f"audit_{now.strftime('%Y-%m-%d_%H-%M-%S')}.txt"
 with open(auditlog, "a") as file:
@@ -80,7 +80,7 @@ with open(auditlog, "a") as file:
                     file.write(f"{now}: gst number entered \n")
                     # submit_button = driver.find_element_by_xpath('//button[@type="submit"]')
                     # submit_button.click()
-                    wb = openpyxl.load_workbook(r"C:\Users\chaitalibothe\Desktop\InvoiceProject\invoice report.xlsx")
+                    wb = openpyxl.load_workbook(r"C:\Users\chaitalibothe\Desktop\Sampleproj\invoice report.xlsx")
                     ws = wb.active
                     row = ws.max_row + 1
                     file.write(f"{now}: excel sheet opened \n")
@@ -96,7 +96,7 @@ with open(auditlog, "a") as file:
                     ws.cell(row=row, column=10).value = invoice_total
                     ws.cell(row=row, column=11).value = invoice_gst_num
                     file.write(f"{now}: details entered in excel sheet \n")
-                    wb.save(r"C:\Users\chaitalibothe\Desktop\InvoiceProject\invoice report.xlsx.")
+                    wb.save(r"C:\Users\chaitalibothe\Desktop\Sampleproj\invoice report.xlsx")
                     file.write(f"{now}: END \n")
                     time.sleep(10)
                     driver.quit()
